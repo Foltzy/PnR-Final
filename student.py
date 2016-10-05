@@ -22,6 +22,7 @@ class GoPiggy(pigo.Pigo):
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
         while True:
+        while True:
             self.stop()
             self.handler()
 
@@ -47,6 +48,17 @@ class GoPiggy(pigo.Pigo):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
         self.encR(18)
+        for x in range(100, 200, 25):
+            print ('Speed is set too:' + str(x))
+            servo(40)
+            set_speed(x)
+            self.encB(2)
+            self.encR(5)
+            self.encF(7)
+            self.encL(4)
+            servo(100)
+            time.sleep(.1)
+
 
     # AUTONOMOUS DRIVING
     def nav(self):
