@@ -70,15 +70,6 @@ class GoPiggy(pigo.Pigo):
             x += 25
 
 
-
-
-
-
-
-
-
-
-
     def status(self):
         print("My power is at " + str(volt()) + " volts")
 
