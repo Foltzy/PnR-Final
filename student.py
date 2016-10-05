@@ -58,7 +58,7 @@ class GoPiggy(pigo.Pigo):
             self.encF(3)
             servo(60)
             servo(100)
-            time.sleep(.1)
+            time.sleep(.5)
             self.encR(5)
             self.encF(2)
             servo(120)
@@ -67,7 +67,8 @@ class GoPiggy(pigo.Pigo):
             servo(50)
             time.sleep(.1)
 
-
+    def status(self):
+        print("My power is at " + str(volt()) + " volts")
 
     # AUTONOMOUS DRIVING
     def nav(self):
