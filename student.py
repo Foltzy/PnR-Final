@@ -47,7 +47,6 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
-        self.encR(18)
         if self.isClear():
             for x in range(100, 200, 25):
                 print ('Speed is set too:' + str(x))
