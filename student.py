@@ -53,7 +53,7 @@ class GoPiggy(pigo.Pigo):
             if not self.isClear():
                 stop()
                 break
-            elif:
+            else:
             self.encR(5)
             a += 25
 
