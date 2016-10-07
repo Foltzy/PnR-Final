@@ -51,7 +51,9 @@ class GoPiggy(pigo.Pigo):
         a = 0
         while a <= 50:
             if not self.isClear():
+                stop()
                 break
+            elif:
             self.encR(5)
             a += 25
 
