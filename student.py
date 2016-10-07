@@ -58,9 +58,9 @@ class GoPiggy(pigo.Pigo):
                 self.encR(6)
                 a += 25
                 while x <= 200 and a == 100:
-                    print("-------------------------------")
+                    print("------------------------------")
                     print('-- Speed is set too: ' + str(x) + "--")
-                    print("-------------------------------")
+                    print("------------------------------")
                     servo(40)
                     set_speed(x)
                     self.encB(5)
@@ -85,9 +85,9 @@ class GoPiggy(pigo.Pigo):
 
 
     def status(self):
-        print("-------------------------------")
+        print("------------------------------")
         print("My power is at " + str(volt()) + " volts")
-        print("-------------------------------")
+        print("------------------------------")
 
     # AUTONOMOUS DRIVING
     def nav(self):
