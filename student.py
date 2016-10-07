@@ -48,8 +48,19 @@ class GoPiggy(pigo.Pigo):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
         x = 100
-        while self.isClear() and x <= 200:
-            print ('Speed is set too:' + str(x))
+        while self.isClear()
+            self.encR(5)
+        while self.isClear()
+            self.encR(5)
+        while self.isClear()
+            self.encR(5)
+        while self.isClear()
+            self.encR(5)
+
+
+
+        while x <= 200:
+            print ('Speed is set too: ' + str(x))
             servo(40)
             set_speed(x)
             self.encB(3)
