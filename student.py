@@ -53,29 +53,29 @@ class GoPiggy(pigo.Pigo):
             if not self.isClear():
                 stop()
                 break
-            self.encR(5)
-            a += 25
-
-        while x <= 200:
-            print ('Speed is set too: ' + str(x))
-            servo(40)
-            set_speed(x)
-            self.encB(5)
-            self.encR(7)
-            self.encL(7)
-            servo(30)
-            self.encF(5)
-            servo(60)
-            servo(100)
-            time.sleep(.5)
-            self.encR(7)
-            self.encF(2)
-            servo(120)
-            self.encL(5)
-            self.encR(5)
-            servo(50)
-            time.sleep(.1)
-            x += 25
+            else:
+                self.encR(5)
+                a += 25
+                while x <= 200:
+                    print ('Speed is set too: ' + str(x))
+                    servo(40)
+                    set_speed(x)
+                    self.encB(5)
+                    self.encR(7)
+                    self.encL(7)
+                    servo(30)
+                    self.encF(5)
+                    servo(60)
+                    servo(100)
+                    time.sleep(.5)
+                    self.encR(7)
+                    self.encF(2)
+                    servo(120)
+                    self.encL(5)
+                    self.encR(5)
+                    servo(50)
+                    time.sleep(.1)
+                    x += 25
 
 
     def status(self):
