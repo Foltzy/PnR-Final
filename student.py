@@ -29,6 +29,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
+        print("------------------------------------")
         menu = {"1": ("Navigate forward", self.nav),
                 "2": ("Rotate", self.rotate),
                 "3": ("Dance", self.dance),
@@ -36,6 +37,7 @@ class GoPiggy(pigo.Pigo):
                 "s": ("Status", self.status),
                 "q": ("Quit", quit)
                 }
+        print("------------------------------------")
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
