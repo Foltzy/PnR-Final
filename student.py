@@ -37,7 +37,6 @@ class GoPiggy(pigo.Pigo):
                 "s": ("Status", self.status),
                 "q": ("Quit", quit)
                 }
-        print("------------------------------------")
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
