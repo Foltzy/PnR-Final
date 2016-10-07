@@ -49,7 +49,7 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         x = 100
         a = 0
-        while a <= 100:
+        while a <= 50:
             self.isClear()
             self.encR(5)
             a += 25
