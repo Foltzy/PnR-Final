@@ -48,23 +48,27 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
+        # Variables for "Spin Code"
         x = 100
         a = 0
+        # Test if clear
         while a <= 100:
             if not self.isClear():
                 stop()
                 break
+            # If clear then "dance!"
             else:
                 self.encR(6)
                 a += 25
                 while x <= 200 and a == 100:
+                    #### Print speed
                     print("------------------------------")
-                    print('-- Speed is set too: ' + str(x) + "--")
+                    print('Speed is set too: ' + str(x))
                     print("------------------------------")
                     servo(40)
                     set_speed(x)
                     self.encB(5)
-                    self.encR(7)
+                    self.encR(18)
                     self.encL(7)
                     servo(30)
                     self.encF(5)
