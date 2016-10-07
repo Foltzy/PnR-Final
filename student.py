@@ -29,7 +29,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
-        print("------------------------------")
+        print("----------- MENU -------------")
         menu = {"1": ("Navigate forward", self.nav),
                 "2": ("Rotate", self.rotate),
                 "3": ("Dance", self.dance),
