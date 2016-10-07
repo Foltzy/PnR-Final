@@ -48,13 +48,13 @@ class GoPiggy(pigo.Pigo):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
         x = 100
-        while self.isClear()
+        while self.isClear():
             self.encR(5)
-        while self.isClear()
+        while self.isClear():
             self.encR(5)
-        while self.isClear()
+        while self.isClear():
             self.encR(5)
-        while self.isClear()
+        while self.isClear():
             self.encR(5)
 
 
