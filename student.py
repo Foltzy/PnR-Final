@@ -54,8 +54,8 @@ class GoPiggy(pigo.Pigo):
                 stop()
                 break
             else:
-            self.encR(5)
-            a += 25
+                self.encR(5)
+                a += 25
 
         while x <= 200:
             print ('Speed is set too: ' + str(x))
