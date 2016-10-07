@@ -49,14 +49,14 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         x = 100
         a = 0
-        while a <= 50:
+        while a <= 100:
             if not self.isClear():
                 stop()
                 break
             else:
                 self.encR(5)
                 a += 25
-                while x <= 200 and a == 50:
+                while x <= 200 and a == 100:
                     print ('Speed is set too: ' + str(x))
                     servo(40)
                     set_speed(x)
