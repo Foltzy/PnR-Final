@@ -48,15 +48,15 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
-        # Variables for "Spin Code"
+        ##varibles for spin code/dance code
         x = 100
         a = 0
-        # Test if clear
+        ##loop: check if clear
         while a <= 100:
             if not self.isClear():
                 stop()
                 break
-            # If clear then "dance!"
+            ###if clear then move in "circle" and "dance"
             else:
                 self.encR(6)
                 a += 25
@@ -83,21 +83,27 @@ class GoPiggy(pigo.Pigo):
                     servo(120)
                     self.encL(5)
                     self.encR(18)
-                    self.encL(18)
+                    self.encL(18)0--
                     servo(50)
                     time.sleep(.1)
                     x += 25
-
 
     def status(self):
         print("------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
 
+    #################################################
     # AUTONOMOUS DRIVING
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
+        #TODO: If while loop fails, check for other paths
+        #loop: check that it's clear
+        while self.isClear:
+            ##move forward a fine bit while check loop
+            self.encF(10)
+
 
 
 ####################################################
