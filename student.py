@@ -103,6 +103,8 @@ class GoPiggy(pigo.Pigo):
         while self.isClear():
             ##move forward a fine bit while check loop
             self.encF(10)
+        else:
+            self.choosePath()
 
 
 
