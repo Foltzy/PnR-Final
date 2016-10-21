@@ -100,7 +100,7 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FINAL PROJECT HERE
         #TODO: If while loop fails, check for other paths
         #loop: check that it's clear
-        while self.isClear:
+        while self.isClear():
             ##move forward a fine bit while check loop
             self.encF(10)
 
