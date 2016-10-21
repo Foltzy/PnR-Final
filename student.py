@@ -107,7 +107,7 @@ class GoPiggy(pigo.Pigo):
             self.choosePath()
             while True:
                 ##isClear MVP method
-                answer = self.choosePath():
+                answer = self.choosePath()
                 if answer == "left":
                     self.encL(4)
                 elif answer == "right":
