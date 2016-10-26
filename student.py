@@ -102,7 +102,7 @@ class GoPiggy(pigo.Pigo):
         #loop: check that it's clear
         while True:
             while self.isClear():
-                ##move forward a fine bit while check loop
+                ##move forward a fine amount while check loop
                 self.encF(5)
                 ##isClear MVP method
             answer = self.choosePath()
