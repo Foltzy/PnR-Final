@@ -107,10 +107,25 @@ class GoPiggy(pigo.Pigo):
                 ##isClear MVP method
             answer = self.choosePath()
             if answer == "left":
-                self.encL(4)
+                self.encL(2)
             elif answer == "right":
-                self.encR(4)
+                self.encR(2)
 
+    speed = 100
+    TURNSPEED = 195
+    def setSpeed(self, x):
+        self.speed = x
+        set_left_speed(self.speed - 10)
+        set_right_speed(speed)
+
+    def getSpeed(self):
+        return self.speed
+
+    def turnR(self, x):
+        previous = self.getSpeed()
+        self.setSpeed(self.TURNSPEED)
+        self.encR(x)
+        self.setSpeed(previous)
 
 
 ####################################################
