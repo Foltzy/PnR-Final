@@ -92,6 +92,7 @@ class GoPiggy(pigo.Pigo):
         print("------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
+       self.encF(9)
 
     #################################################
     # AUTONOMOUS DRIVING
