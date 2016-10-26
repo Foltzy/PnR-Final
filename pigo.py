@@ -222,7 +222,7 @@ class Pigo(object):
                 else:
                     print("Midpoint now saved to: " + str(self.MIDPOINT))
                     break
-        response = input("Do you want to check if I'm driving straight? (y/n)")
+        response = input("Do you want to check if I'm driving straight? (y/n): ")
         if response == 'y':
 
             while True:
@@ -232,9 +232,9 @@ class Pigo(object):
                 self.encF(9)
                 response = input("Reduce left, reduce right or done? (l/r/d): ")
                 if response == 'l':
-                    self.LEFT_SPEED -= 5
+                    self.LEFT_SPEED -= 10
                 elif response == 'r':
-                    self.RIGHT_SPEED -= 5
+                    self.RIGHT_SPEED -= 10
                 else:
                             break
 
