@@ -114,6 +114,7 @@ class GoPiggy(pigo.Pigo):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
         #loop: check that it's clear
+
         while True:
             while self.isClear():
                 ##move forward a fine amount while check loop
