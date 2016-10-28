@@ -123,9 +123,9 @@ class GoPiggy(pigo.Pigo):
                 ##isClear MVP method
             answer = self.choosePath()
             if answer == "left":
-                self.encL(2)
+                self.encL(5)
             elif answer == "right":
-                self.encR(2)
+                self.encR(5)
 
     #Calibration methods and turn speed help
     speed = 100
