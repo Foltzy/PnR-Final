@@ -100,6 +100,7 @@ class GoPiggy(pigo.Pigo):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
         #TODO: If while loop fails, check for other paths
+        #TODO: Increase wide scan in order to make consistent left turns
         #loop: check that it's clear
         while True:
             while self.isClear():
