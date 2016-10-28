@@ -117,7 +117,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             while self.isClear():
                 ##move forward a fine amount while check loop
-                self.encF(5)
+                self.testDrive()
                 ##isClear MVP method
             answer = self.choosePath()
             if answer == "left":
