@@ -96,11 +96,22 @@ class GoPiggy(pigo.Pigo):
 
     #################################################
     # AUTONOMOUS DRIVING
+    #TEST DRIVE method
+    #TODO: Test codeing and make bug fixes
+    def testDrive(self):
+        print("Moving straight!")
+        fwd()
+        while True:
+            if us_dist(15) < self.STOP_DIST:
+                print("STOP!")
+                break
+            time.sleep(.05)
+            print("Seems alright...")
+        self.stop()
+
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
-        #TODO: If while loop fails, check for other paths
-        #TODO: Increase wide scan in order to make consistent left turns
         #loop: check that it's clear
         while True:
             while self.isClear():
@@ -113,6 +124,7 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(2)
 
+    #Calibration methods and turn speed help
     speed = 100
     TURNSPEED = 195
     def setSpeed(self, x):
@@ -123,6 +135,7 @@ class GoPiggy(pigo.Pigo):
     def getSpeed(self):
         return self.speed
 
+    #Consistent turns
     def turnR(self, x):
         previous = self.getSpeed()
         self.setSpeed(self.TURNSPEED)
