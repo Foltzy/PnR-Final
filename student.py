@@ -115,7 +115,7 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FINAL PROJECT HERE
         #loop: check that it's clear
         set_left_speed(125)
-        set_right_speed(100)
+        set_right_speed(120)
         while True:
             while self.isClear():
                 ##move forward a fine amount while check loop
