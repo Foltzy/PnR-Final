@@ -129,6 +129,11 @@ class GoPiggy(pigo.Pigo):
         self.encR(x)
         self.setSpeed(previous)
 
+    def turnL(self, x):
+        previous = self.getSpeed()
+        self.setSpeed(self.TURNSPEED)
+        self.encL(x)
+        self.setSpeed(previous)
 
 ####################################################
 ############### STATIC FUNCTIONS
