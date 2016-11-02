@@ -36,7 +36,8 @@ class GoPiggy(pigo.Pigo):
                 "2": (" Rotate", self.rotate),
                 "3": (" Dance", self.dance),
                 "4": (" Calibrate", self.calibrate),
-                "5": (" Test Drive?", self.testDrive),
+                "5": (" Test Drive", self.testDrive),
+                "6": (" Test Scan", self.chooseBetter),
                 "s": (" Status", self.status),
                 "q": (" Quit", quit)
                 }
@@ -136,6 +137,32 @@ class GoPiggy(pigo.Pigo):
                 self.encL(5)
             elif answer == "right":
                 self.encR(5)
+
+##############################################
+########### Choose path
+    def chooseBetter(self):
+        self.flushScan()
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+            servo(x)
+            time.sleep(.1)
+            self.scan[x] = us_dist(15)
+            time.sleep(.05)
+        count = 0
+        option = [0]
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+            if self.scan[x] > self.STOP_DIST:
+                count += 1
+            else:
+                count = 0
+            if count > 9:
+                print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
+                count = 0
+                option.append(x)
+        count = 0
+        for x in option:
+            print(" Choice # " + str(count) + " is@ " + str(x) + " degrees. ")
+            count += 1
+            # TODO figure out what option is closest to the midpoint
 
 ##########################################################
 ####### Calibration methods and turn speed help
