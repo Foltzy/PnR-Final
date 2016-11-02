@@ -101,8 +101,7 @@ class GoPiggy(pigo.Pigo):
         self.encF(9)
 
 #################################################
-######## AUTONOMOUS DRIVING
-    #TODO's
+######## TODO List
     #TODO - Test codeing and make bug fixes
     #TODO - Change the stop distance to fix hitting a box
     #TODO - "Division" for motor calibration
