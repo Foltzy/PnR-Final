@@ -14,6 +14,8 @@ class GoPiggy(pigo.Pigo):
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
     STOP_DIST = 20
+    speed = 100
+    TURNSPEED = 195
 
     # CONSTRUCTOR
     def __init__(self):
@@ -33,7 +35,7 @@ class GoPiggy(pigo.Pigo):
         menu = {"1": (" Navigate forward", self.nav),
                 "2": (" Rotate", self.rotate),
                 "3": (" Dance", self.dance),
-                "4": (" Calibrate servo", self.calibrate),
+                "4": (" Calibrate", self.calibrate),
                 "5": (" Test Drive?", self.testDrive),
                 "s": (" Status", self.status),
                 "q": (" Quit", quit)
@@ -45,7 +47,8 @@ class GoPiggy(pigo.Pigo):
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
 
-    # A SIMPLE DANCE ALGORITHM
+##############################################
+############# A SIMPLE DANCE ALGORITHM
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
@@ -89,21 +92,29 @@ class GoPiggy(pigo.Pigo):
                     time.sleep(.1)
                     x += 25
 
+################################################
+###### Battery STATUS
     def status(self):
         print("------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
         self.encF(9)
 
-    #################################################
-    # AUTONOMOUS DRIVING
-    #TEST DRIVE method
-    #TODO: Test codeing and make bug fixes
+#################################################
+######## AUTONOMOUS DRIVING
+    #TODO's
+    #TODO - Test codeing and make bug fixes
+    #TODO - Change the stop distance to fix hitting a box
+    #TODO - "Division" for motor calibration
+
+#################################################
+############ TEST DRIVE Method
     def testDrive(self):
         print("Moving straight!")
         fwd()
         while True:
             if us_dist(15) < self.STOP_DIST:
+                ##tell me when he wants to stop
                 print("STOP!")
                 break
             time.sleep(.05)
@@ -127,9 +138,8 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(5)
 
-    #Calibration methods and turn speed help
-    speed = 100
-    TURNSPEED = 195
+##########################################################
+####### Calibration methods and turn speed help
     def setSpeed(self, x):
         self.speed = x
         set_left_speed(self.speed - 10)
@@ -138,7 +148,8 @@ class GoPiggy(pigo.Pigo):
     def getSpeed(self):
         return self.speed
 
-    #Consistent turns
+########################################################
+########## Consistent turns
     def turnR(self, x):
         previous = self.getSpeed()
         self.setSpeed(self.TURNSPEED)
