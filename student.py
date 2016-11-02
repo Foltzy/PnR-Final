@@ -163,8 +163,6 @@ class GoPiggy(pigo.Pigo):
             print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
             count += 1
 
-        for key in sorted(menu.keys()):
-            print(key + ":" + option[key][0])
         ans = input("Your selection: ")
         option.get(ans, [None, error])[1]()
 
