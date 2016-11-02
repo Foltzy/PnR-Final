@@ -160,9 +160,12 @@ class GoPiggy(pigo.Pigo):
                 option.append(x)
         count = 0
         for x in option:
-            print(" Choice # " + str(count) + " is@ " + str(x) + " degrees. ")
+            print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
             count += 1
-            # TODO figure out what option is closest to the midpoint
+        ans = input("Your selection: ")
+        menu.get(ans, [None, error])[1]()
+
+        # TODO figure out what option is closest to the midpoint
 
 ##########################################################
 ####### Calibration methods and turn speed help
