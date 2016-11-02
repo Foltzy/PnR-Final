@@ -163,7 +163,7 @@ class GoPiggy(pigo.Pigo):
             print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
             count += 1
         ans = input("Your selection: ")
-        menu.get(ans, [None, error])[1]()
+        option.get(ans, [None, error])[1]()
 
         # TODO figure out what option is closest to the midpoint
 
