@@ -168,7 +168,8 @@ class GoPiggy(pigo.Pigo):
                 "3": (" Direction Forward Four", self.forward4),
                 "4": (" Direction Forward Eight", self.forward8),
                 "5": (" Direction Right Two", self.rightTurn2),
-                "6": (" Direction Right Four", self.rightTurn4)
+                "6": (" Direction Right Four", self.rightTurn4),
+                "q": (" Return to testDrive", self.testDrive)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -176,9 +177,6 @@ class GoPiggy(pigo.Pigo):
         #
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
-
-
-
 
         #ans = input("Your selection: ")
         #option.get(ans, [None, error])[1]()
