@@ -181,22 +181,22 @@ class GoPiggy(pigo.Pigo):
         #option.get(ans, [None, error])[1]()
 
     def rightTurn4(self):
-        encR(4)
+        self.encR(4)
 
     def rightTurn2(self):
-        encR(2)
+        self.encR(2)
 
     def leftTurn4(self):
-        encL(4)
+        self.encL(4)
 
     def leftTurn2(self):
-        encL(2)
+        self.encL(2)
 
     def forward4(self):
-        encF(4)
+        self.encF(4)
 
     def forward8(self):
-        encF(8)
+        self.encF(8)
         # TODO figure out what option is closest to the midpoint
 
 ##########################################################
