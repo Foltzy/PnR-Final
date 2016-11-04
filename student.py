@@ -161,12 +161,12 @@ class GoPiggy(pigo.Pigo):
 
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
-        menu = {"1": (" Direction " + str(x), self.encL(4)),
-                "2": (" Direction " + str(x), self.encL(2)),
-                "3": (" Direction " + str(x), self.encF(8)),
-                "4": (" Direction " + str(x), self.encF(4)),
-                "5": (" Direction " + str(x), self.encR(2)),
-                "6": (" Direction " + str(x), self.encR(4))
+        menu = {"1": (" Direction " + str(x), self.leftTurn4),
+                "2": (" Direction " + str(x), self.leftTurn2),
+                "3": (" Direction " + str(x), self.forward4),
+                "4": (" Direction " + str(x), self.forward8),
+                "5": (" Direction " + str(x), self.rightTurn2),
+                "6": (" Direction " + str(x), self.rightTurn4)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -180,6 +180,23 @@ class GoPiggy(pigo.Pigo):
         #ans = input("Your selection: ")
         #option.get(ans, [None, error])[1]()
 
+    def rightTurn4(self):
+        encR(4)
+
+    def rightTurn2(self):
+        encR(2)
+
+    def leftTurn4(self):
+        encL(4)
+
+    def leftTurn2(self):
+        encL(2)
+
+    def forward4(self):
+        encF(4)
+
+    def forward8(self):
+        encF(8)
         # TODO figure out what option is closest to the midpoint
 
 ##########################################################
