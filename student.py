@@ -158,24 +158,22 @@ class GoPiggy(pigo.Pigo):
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
                 count = 0
                 option.append(x)
-        count = 0
-        for x in option:
-            ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
-            count += 1
 
-            menu = {"1": (" Direction " + str(x), self.encL(4)),
-                    "2": (" Direction " + str(x), self.encL(2)),
-                    "3": (" Direction " + str(x), self.encF(8)),
-                    "4": (" Direction " + str(x), self.encF(4)),
-                    "5": (" Direction " + str(x), self.encR(2)),
-                    "6": (" Direction " + str(x), self.encR(4))
-                    }
-            # loop and print the menu...
-            for key in sorted(menu.keys()):
-                print(key + ":" + menu[key][0])
-            #
-            ans = input("Your selection: ")
-            menu.get(ans, [None, error])[1]()
+        ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
+
+        menu = {"1": (" Direction " + str(x), self.encL(4)),
+                "2": (" Direction " + str(x), self.encL(2)),
+                "3": (" Direction " + str(x), self.encF(8)),
+                "4": (" Direction " + str(x), self.encF(4)),
+                "5": (" Direction " + str(x), self.encR(2)),
+                "6": (" Direction " + str(x), self.encR(4))
+                }
+        # loop and print the menu...
+        for key in sorted(menu.keys()):
+            print(key + ":" + menu[key][0])
+        #
+        ans = input("Your selection: ")
+        menu.get(ans, [None, error])[1]()
 
 
 
