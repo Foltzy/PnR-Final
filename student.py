@@ -164,11 +164,11 @@ class GoPiggy(pigo.Pigo):
 
     def dataBase(self):
         menu = {"1": (" Direction Left Four", self.leftTurn4),
-                "2": (" Direction Left Two" + str(x), self.leftTurn2),
-                "3": (" Direction Forward Four" + str(x), self.forward4),
-                "4": (" Direction Forward Eight" + str(x), self.forward8),
-                "5": (" Direction Right Two" + str(x), self.rightTurn2),
-                "6": (" Direction Right Four" + str(x), self.rightTurn4)
+                "2": (" Direction Left Two", self.leftTurn2),
+                "3": (" Direction Forward Four", self.forward4),
+                "4": (" Direction Forward Eight", self.forward8),
+                "5": (" Direction Right Two", self.rightTurn2),
+                "6": (" Direction Right Four", self.rightTurn4)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
