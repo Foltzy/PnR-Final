@@ -169,7 +169,8 @@ class GoPiggy(pigo.Pigo):
                 "4": (" Direction Forward Eight", self.forward8),
                 "5": (" Direction Right Two", self.rightTurn2),
                 "6": (" Direction Right Four", self.rightTurn4),
-                "q": (" Return to testDrive", self.testDrive)
+                "n": (" Return to testDrive", self.testDrive),
+                "q": (" Return to selection menu", self.handler)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
