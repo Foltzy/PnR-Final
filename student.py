@@ -158,15 +158,17 @@ class GoPiggy(pigo.Pigo):
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
                 count = 0
                 option.append(x)
+                self.dataBase()
 
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
-        menu = {"1": (" Direction " + str(x), self.leftTurn4),
-                "2": (" Direction " + str(x), self.leftTurn2),
-                "3": (" Direction " + str(x), self.forward4),
-                "4": (" Direction " + str(x), self.forward8),
-                "5": (" Direction " + str(x), self.rightTurn2),
-                "6": (" Direction " + str(x), self.rightTurn4)
+    def dataBase(self):
+        menu = {"1": (" Direction Left Four", self.leftTurn4),
+                "2": (" Direction Left Two" + str(x), self.leftTurn2),
+                "3": (" Direction Forward Four" + str(x), self.forward4),
+                "4": (" Direction Forward Eight" + str(x), self.forward8),
+                "5": (" Direction Right Two" + str(x), self.rightTurn2),
+                "6": (" Direction Right Four" + str(x), self.rightTurn4)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -174,6 +176,7 @@ class GoPiggy(pigo.Pigo):
         #
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
+
 
 
 
