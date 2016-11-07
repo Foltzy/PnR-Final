@@ -86,7 +86,7 @@ class GoPiggy(pigo.Pigo):
                 elif self.turn_track < 0:
                     self.encL(abs(self.turn_track))
 
-    #Drive forward as long as nothing's in the way
+    ######Drive forward as long as nothing's in the way
     def cruise(self):
         #aim forward
         servo(self.MIDPOINT)
