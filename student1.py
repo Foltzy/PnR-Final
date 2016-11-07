@@ -73,11 +73,11 @@ class GoPiggy(pigo.Pigo):
                         best_option = x
                 print("My best option is at "+str(best_option)+" degrees.")
                 change = self.MIDPOINT - best_option
-                print("That means I need to turn by "+str(change)+ "degrees.")
+                print("That means I need to turn by "+str(change)+ " degrees.")
                 if change > 0:
-                    self.encR(change / self.DEG_PER_ENC)
+                    self.encR(change + self.DEG_PER_ENC)
                 else:
-                    self.encL(abs(change) / self.DEG_PER_ENC)
+                    self.encL(abs(change) + self.DEG_PER_ENC)
             else:
                 print("No options. Going to back up.")
                 self.encB(18)
