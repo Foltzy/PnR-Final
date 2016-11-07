@@ -146,7 +146,7 @@ class GoPiggy(pigo.Pigo):
             print("The exit is to my right by " + str(self.turn_track) + "units")
         else:
             print("The exit is to my left by " + str(abs(self.turn_track)) + "units")
-        super(pigo.Pigo, self).encR(enc)
+        super(pigo.Pigo, self)self.encR(enc)
 
     def encL(self, enc):
         self.turn_track += enc
@@ -154,7 +154,7 @@ class GoPiggy(pigo.Pigo):
             print("The exit is to my right by " + str(self.turn_track) + "units")
         else:
             print("The exit is to my left by " + str(abs(self.turn_track)) + "units")
-        super(pigo.Pigo, self).encL(enc)
+        super(pigo.Pigo, self)self.encL(enc)
 
 
 
