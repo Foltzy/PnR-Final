@@ -163,6 +163,7 @@ class GoPiggy(pigo.Pigo):
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
     def dataBase(self):
+        print("----------- MENU -------------")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
                 "3": (" Direction Forward Four", self.forward4),
@@ -174,6 +175,7 @@ class GoPiggy(pigo.Pigo):
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
+
             print(key + ":" + menu[key][0])
         #
         ans = input("Your selection: ")
