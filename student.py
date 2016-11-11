@@ -31,6 +31,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
+        print("\033[1;31;40m \n")
         print("----------- MENU -------------")
         menu = {"1": (" Navigate forward", self.nav),
                 "2": (" Rotate", self.rotate),
@@ -166,7 +167,7 @@ class GoPiggy(pigo.Pigo):
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
     def dataBase(self):
-        print("\033[1;32;40m ------------------------------ \n")
+        print("\033[1;32;40m \n")
         print("----------- MENU -------------")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
