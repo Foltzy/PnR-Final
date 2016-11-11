@@ -99,18 +99,17 @@ class GoPiggy(pigo.Pigo):
         print("------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
-        self.encF(9)
 
 #################################################
 ######## TODO List
-    #TODO - Test codeing and make bug fixes
-    #TODO - Change the stop distance to fix hitting a box
-    #TODO - "Division" for motor calibration
+    #TODO - Test coding and make bug fixes
 
 #################################################
 ############ TEST DRIVE Method
     def testDrive(self):
-        print("Moving straight!")
+        print("------------------")
+        print("Heading straight!")
+        print("------------------")
         fwd()
         while True:
             if us_dist(15) < self.STOP_DIST:
@@ -118,7 +117,9 @@ class GoPiggy(pigo.Pigo):
                 print("STOP!")
                 break
             time.sleep(.05)
+            print("------------------")
             print("Seems alright...")
+            print("------------------")
         self.stop()
 
     def nav(self):
@@ -155,7 +156,9 @@ class GoPiggy(pigo.Pigo):
             else:
                 count = 0
             if count > 9:
+                print("-------------------------------------")
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
+                print("-------------------------------------")
                 count = 0
                 option.append(x)
                 self.dataBase()
@@ -163,6 +166,7 @@ class GoPiggy(pigo.Pigo):
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
     def dataBase(self):
+        print(""\033[1;32;40m ------------------------------ \n")
         print("----------- MENU -------------")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
@@ -170,7 +174,6 @@ class GoPiggy(pigo.Pigo):
                 "4": (" Direction Forward Eight", self.forward8),
                 "5": (" Direction Right Two", self.rightTurn2),
                 "6": (" Direction Right Four", self.rightTurn4),
-                "n": (" Return to testDrive", self.testDrive),
                 "q": (" Return to selection menu", self.handler)
                 }
         # loop and print the menu...
