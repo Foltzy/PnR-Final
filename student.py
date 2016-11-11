@@ -31,8 +31,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
-        print("\033[1;31;40m \n")
-        print("----------- MENU -------------")
+        print("\033[1;31;40m----------- MENU -------------\n")
         menu = {"1": (" Navigate forward", self.nav),
                 "2": (" Rotate", self.rotate),
                 "3": (" Dance", self.dance),
@@ -211,6 +210,7 @@ class GoPiggy(pigo.Pigo):
 ########################################################
 ########### Color Key
     def colorCode(self):
+        print("--- \033[1;31;40mK\n \033[1;32;40me\n \033[1;34;40my\n ---")
         print("\033[1;31;40mBright Red = Normal Menu\n")
         print("\033[1;32;40mBright Green = Selection Menu\n")
         print("\033[1;34;40mBright Blue = Execution Code\n")
