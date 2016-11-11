@@ -19,7 +19,7 @@ class GoPiggy(pigo.Pigo):
 
     # CONSTRUCTOR
     def __init__(self):
-        print("Piggy has be instantiated!")
+        print("\033[1;34;40mPiggy has be instantiated!\n")
         # this method makes sure Piggy is looking forward
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
@@ -68,7 +68,7 @@ class GoPiggy(pigo.Pigo):
                 a += 25
                 while x <= 200 and a == 100:
                     #### Print speed
-                    print("------------------------------")
+                    print("\033[1;34;40m------------------------------\n")
                     print('Speed is set too: ' + str(x))
                     print("------------------------------")
                     servo(40)
@@ -97,7 +97,7 @@ class GoPiggy(pigo.Pigo):
 ################################################
 ###### Battery STATUS
     def status(self):
-        print("------------------------------")
+        print("\033[1;34;40m------------------------------\n")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
 
@@ -108,7 +108,7 @@ class GoPiggy(pigo.Pigo):
 #################################################
 ############ TEST DRIVE Method
     def testDrive(self):
-        print("------------------")
+        print("\033[1;34;40m------------------\n")
         print("Heading straight!")
         print("------------------")
         fwd()
@@ -118,7 +118,7 @@ class GoPiggy(pigo.Pigo):
                 print("STOP!")
                 break
             time.sleep(.05)
-            print("------------------")
+            print("\033[1;34;40m------------------\n")
             print("Seems alright...")
             print("------------------")
         self.stop()
@@ -157,7 +157,7 @@ class GoPiggy(pigo.Pigo):
             else:
                 count = 0
             if count > 9:
-                print("-------------------------------------")
+                print("\033[1;34;40m-------------------------------------\n")
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
                 print("-------------------------------------")
                 count = 0
