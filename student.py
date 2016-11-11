@@ -39,6 +39,7 @@ class GoPiggy(pigo.Pigo):
                 "4": (" Calibrate", self.calibrate),
                 "5": (" Test Drive", self.testDrive),
                 "6": (" Test Scan", self.chooseBetter),
+                "c": (" Color Key"), self.colorCode),
                 "s": (" Status", self.status),
                 "q": (" Quit", quit)
                 }
@@ -206,6 +207,13 @@ class GoPiggy(pigo.Pigo):
     def forward8(self):
         self.encF(8)
         # TODO figure out what option is closest to the midpoint
+
+########################################################
+########### Color Key
+    def colorCode(self):
+        print("\033[1;31;40mBright Red = Normal Menu\n")
+        print("\033[1;32;40mBright Green = Selection Menu\n")
+        print("\033[1;34;40mBright Blue = Execution Code\n")
 
 ##########################################################
 ####### Calibration methods and turn speed help
