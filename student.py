@@ -168,7 +168,7 @@ class GoPiggy(pigo.Pigo):
 
     def dataBase(self):
         print("\033[1;32;40m \n")
-        print("\033[0;37;40m----------- MENU -------------\n \033[0;37;40m \n")
+        print("\033[0;37;40m----------- MENU -------------\n \033[1;32;40m \n")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
                 "3": (" Direction Forward Four", self.forward4),
