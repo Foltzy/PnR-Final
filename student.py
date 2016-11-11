@@ -39,7 +39,7 @@ class GoPiggy(pigo.Pigo):
                 "4": (" Calibrate", self.calibrate),
                 "5": (" Test Drive", self.testDrive),
                 "6": (" Test Scan", self.chooseBetter),
-                "c": (" Color Key"), self.colorCode),
+                "c": (" Color Key", self.colorCode),
                 "s": (" Status", self.status),
                 "q": (" Quit", quit)
                 }
