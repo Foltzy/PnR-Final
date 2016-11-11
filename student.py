@@ -210,7 +210,7 @@ class GoPiggy(pigo.Pigo):
 ########################################################
 ########### Color Key
     def colorCode(self):
-        print("---------------- Key --------------------")
+        print("\033[0;37;40m---------------- Key --------------------\n")
         print("\033[1;31;40mBright Red = Normal Menu\n")
         print("\033[1;32;40mBright Green = Selection Menu\n")
         print("\033[1;34;40mBright Blue = Execution Code\n")
