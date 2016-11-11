@@ -166,7 +166,7 @@ class GoPiggy(pigo.Pigo):
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
     def dataBase(self):
-        print(""\033[1;32;40m ------------------------------ \n")
+        print("\033[1;32;40m ------------------------------ \n")
         print("----------- MENU -------------")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
