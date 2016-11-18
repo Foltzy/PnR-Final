@@ -16,9 +16,8 @@ class GoPiggy(pigo.Pigo):
     STOP_DIST = 25
     speed = 100
     TURNSPEED = 195
-
     turn_track = 0.0
-    TURN_PER_DEGREE = 0.011
+    TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
 
     # CONSTRUCTOR
