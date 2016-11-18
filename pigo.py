@@ -193,6 +193,7 @@ class Pigo(object):
 
     # DECIDE WHICH WAY TO TURN
     def choosePath(self) -> str:
+        print("\033[1;34;40m")
         print('Considering options...')
         if self.isClear():
             return "fwd"

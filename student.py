@@ -267,6 +267,7 @@ class GoPiggy(pigo.Pigo):
 
 ########################################################
 ########## Consistent turns
+'''
     def turnR(self, x):
         previous = self.getSpeed()
         self.setSpeed(self.TURNSPEED)
@@ -278,6 +279,7 @@ class GoPiggy(pigo.Pigo):
         self.setSpeed(self.TURNSPEED)
         self.encL(x)
         self.setSpeed(previous)
+'''
 
 ####################################################
 ############### STATIC FUNCTIONS
