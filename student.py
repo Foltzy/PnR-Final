@@ -262,11 +262,6 @@ class GoPiggy(pigo.Pigo):
 
 ##########################################################
 ####### Calibration methods and turn speed help
-    def setSpeed(self, x):
-        self.speed = x
-        set_left_speed(self.speed * .3)
-        set_right_speed(speed)
-
     def getSpeed(self):
         return self.speed
 
