@@ -137,7 +137,7 @@ class GoPiggy(pigo.Pigo):
         ## print exit location
         print("The exit is " + str(self.turn_track) + " degrees away.")
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
-                      self.RIGHT_SPEED * TURN_MODIFIER)
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
         right_rot()
         time.sleep(deg * self.TIME_PER_DEGREE)
         self.stop()
@@ -151,7 +151,7 @@ class GoPiggy(pigo.Pigo):
         self.turn_track -= deg
         print("The exit is " + str(self.turn_track) + " degrees away.")
         self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
-                      self.RIGHT_SPEED * TURN_MODIFIER)
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
         left_rot()
         time.sleep(deg * self.TIME_PER_DEGREE)
         self.stop()
