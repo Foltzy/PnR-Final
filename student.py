@@ -13,13 +13,17 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
-    STOP_DIST = 20
+    STOP_DIST = 25
     speed = 100
     TURNSPEED = 195
 
+    turn_track = 0.0
+    TURN_PER_DEGREE = 0.011
+    TURN_MODIFIER = .5
+
     # CONSTRUCTOR
     def __init__(self):
-        print("\033[1;34;40mPiggy has be instantiated!\n")
+        print("\033[1;34;40mPiggy has be instantiated!")
         # this method makes sure Piggy is looking forward
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
@@ -31,7 +35,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
-        print("\033[0;37;40m----------- MENU -------------\n \033[1;31;40m \n")
+        print("\033[0;37;40m----------= MENU =------------ \033[1;31;40m")
         menu = {"1": (" Navigate forward", self.nav),
                 "2": (" Rotate", self.rotate),
                 "3": (" Dance", self.dance),
@@ -68,7 +72,7 @@ class GoPiggy(pigo.Pigo):
                 a += 25
                 while x <= 200 and a == 100:
                     #### Print speed
-                    print("\033[1;34;40m------------------------------\n")
+                    print("\033[1;34;40m------------------------------")
                     print('Speed is set too: ' + str(x))
                     print("------------------------------")
                     servo(40)
@@ -97,7 +101,7 @@ class GoPiggy(pigo.Pigo):
 ################################################
 ###### Battery STATUS
     def status(self):
-        print("\033[1;34;40m------------------------------\n")
+        print("\033[1;34;40m------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
 
@@ -108,7 +112,7 @@ class GoPiggy(pigo.Pigo):
 #################################################
 ############ TEST DRIVE Method
     def testDrive(self):
-        print("\033[1;34;40m------------------\n")
+        print("\033[1;34;40m------------------")
         print("Heading straight!")
         print("------------------")
         fwd()
@@ -118,11 +122,51 @@ class GoPiggy(pigo.Pigo):
                 print("STOP!")
                 break
             time.sleep(.05)
-            print("\033[1;34;40m------------------\n")
+            print("\033[1;34;40m------------------")
             print("Seems alright...")
             print("------------------")
         self.stop()
 
+############################################################
+################# NEW TURN METHOD
+    ### encR and encL don't work
+    def turnR(self, deg):
+        ## Amount of turn
+        print("\033[1;34;40m")
+        self.turn_track += deg
+        ## print exit location
+        print("The exit is " + str(self.turn_track) + " degrees away.")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * TURN_MODIFIER)
+        right_rot()
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        # return speeds set earlier
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
+
+    def turnL(self, deg):
+        ## Amount of turn
+        print("\033[1;34;40m")
+        self.turn_track -= deg
+        print("The exit is " + str(self.turn_track) + " degrees away.")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * TURN_MODIFIER)
+        left_rot()
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        # return speeds set earlier
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
+    def setSpeed(self, left, right):
+        set_left_speed(left)
+        set_right_speed(right)
+        time.sleep(.05)
+
+
+
+#######################################################
+################ NAV
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
@@ -131,14 +175,15 @@ class GoPiggy(pigo.Pigo):
         set_right_speed(115)
         while True:
             while self.isClear():
-                ##move forward a fine amount while check loop
+                ## move forward a fine amount while check loop
                 self.testDrive()
-                ##isClear MVP method
+                ## isClear MVP method
             answer = self.choosePath()
+            ## Turn right from a specific degree
             if answer == "left":
-                self.encL(6)
+                self.turnL(45)
             elif answer == "right":
-                self.encR(6)
+                self.turnR(45)
 
 ##############################################
 ########### Choose path
@@ -157,7 +202,7 @@ class GoPiggy(pigo.Pigo):
             else:
                 count = 0
             if count > 9:
-                print("\033[1;34;40m-------------------------------------\n")
+                print("\033[1;34;40m-------------------------------------")
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
                 print("-------------------------------------")
                 count = 0
@@ -167,8 +212,8 @@ class GoPiggy(pigo.Pigo):
         ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
     def dataBase(self):
-        print("\033[1;32;40m \n")
-        print("\033[0;37;40m----------- MENU -------------\n \033[1;32;40m \n")
+        print("\033[1;32;40m")
+        print("\033[0;37;40m----------- MENU ------------- \033[1;32;40m ")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
                 "3": (" Direction Forward Four", self.forward4),
@@ -210,10 +255,10 @@ class GoPiggy(pigo.Pigo):
 ########################################################
 ########### Color Key
     def colorCode(self):
-        print("\033[0;37;40m---------------- Key --------------------\n")
-        print("\033[1;31;40mBright Red = Normal Menu\n")
-        print("\033[1;32;40mBright Green = Selection Menu\n")
-        print("\033[1;34;40mBright Blue = Execution Code\n")
+        print("\033[0;37;40m---------------- Key --------------------")
+        print("\033[1;31;40mBright Red = Normal Menu")
+        print("\033[1;32;40mBright Green = Selection Menu")
+        print("\033[1;34;40mBright Blue = Execution Code")
 
 ##########################################################
 ####### Calibration methods and turn speed help
