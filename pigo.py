@@ -102,6 +102,7 @@ class Pigo(object):
         print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
 
     def encF(self, enc):
+        print("\033[1;34;40m")
         print('Moving ' + str((enc / 18)) + ' rotation(s) forward')
         enc_tgt(1, 1, enc)
         fwd()
@@ -109,6 +110,7 @@ class Pigo(object):
         stop()
 
     def encR(self, enc):
+        print("\033[1;34;40m")
         print('Moving ' + str((enc / 18)) + ' rotation(s) right')
         enc_tgt(1, 1, enc)
         right_rot()
@@ -116,6 +118,7 @@ class Pigo(object):
         stop()
 
     def encL(self, enc):
+        print("\033[1;34;40m")
         print('Moving ' + str((enc / 18)) + ' rotation(s) left')
         enc_tgt(1, 1, enc)
         left_rot()
@@ -123,6 +126,7 @@ class Pigo(object):
         stop()
 
     def encB(self, enc):
+        print("\033[1;34;40m")
         print('Moving ' + str((enc / 18)) + ' rotations(s) backwards')
         enc_tgt(1, 1, enc)
         bwd()
