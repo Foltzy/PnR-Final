@@ -16,6 +16,7 @@ class GoPiggy(pigo.Pigo):
     STOP_DIST = 25
     speed = 100
     TURNSPEED = 195
+    ## Turn method variables
     turn_track = 0.0
     TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
@@ -23,9 +24,9 @@ class GoPiggy(pigo.Pigo):
     # CONSTRUCTOR
     def __init__(self):
         print("\033[1;34;40mPiggy has be instantiated!")
-        # this method makes sure Piggy is looking forward
-        #self.calibrate()
-        # let's use an event-driven model, make a handler of sorts to listen for "events"
+        ## this method makes sure Piggy is looking forward
+        ## self.calibrate()
+        ## let's use an event-driven model, make a handler of sorts to listen for "events"
         while True:
             self.stop()
             self.handler()
@@ -127,8 +128,8 @@ class GoPiggy(pigo.Pigo):
         self.stop()
 
 ############################################################
-################# NEW TURN METHOD
-    ### encR and encL don't work
+################# TURN METHOD
+    ### encR and encL don't work - not efficient options
     def turnR(self, deg):
         ## Amount of turn
         print("\033[1;34;40m")
@@ -142,7 +143,6 @@ class GoPiggy(pigo.Pigo):
         self.stop()
         # return speeds set earlier
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
-
 
     def turnL(self, deg):
         ## Amount of turn
@@ -165,14 +165,17 @@ class GoPiggy(pigo.Pigo):
 
 
 #######################################################
-################ NAV
+### This runs the entire loop. This is the central logic loop.
+######################## NAV
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
         #loop: check that it's clear
         set_left_speed(100)
         set_right_speed(115)
+        ## Running app loop
         while True:
+            ##TODO: Replace choosePath with a method that's smarter
             while self.isClear():
                 ## move forward a fine amount while check loop
                 self.testDrive()
@@ -180,6 +183,7 @@ class GoPiggy(pigo.Pigo):
             answer = self.choosePath()
             ## Turn right from a specific degree
             if answer == "left":
+                ##TODO: Replace "45" with a more accurate variable
                 self.turnL(45)
             elif answer == "right":
                 self.turnR(45)
@@ -200,19 +204,24 @@ class GoPiggy(pigo.Pigo):
                 count += 1
             else:
                 count = 0
+            ### Represent options and display them
             if count > 9:
                 print("\033[1;34;40m-------------------------------------")
                 print("Found an option from " + str(x - 20) + " to " + str(x) + " degrees")
                 print("-------------------------------------")
                 count = 0
                 option.append(x)
+                ### Calling dataBase from below
                 self.dataBase()
 
-        ###print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
+### print(" Choice " + str(count) + " is at " + str(x) + " degrees. ")
 
+###########################################################
+### Helps enforce moving and turning
+############ dataBase menu "controller"
     def dataBase(self):
         print("\033[1;32;40m")
-        print("\033[0;37;40m----------- MENU ------------- \033[1;32;40m ")
+        print("\033[0;37;40m----------= MENU =------------ \033[1;32;40m ")
         menu = {"1": (" Direction Left Four", self.leftTurn4),
                 "2": (" Direction Left Two", self.leftTurn2),
                 "3": (" Direction Forward Four", self.forward4),
@@ -221,7 +230,7 @@ class GoPiggy(pigo.Pigo):
                 "6": (" Direction Right Four", self.rightTurn4),
                 "q": (" Return to selection menu", self.handler)
                 }
-        # loop and print the menu...
+        ## loop and print the menu...
         for key in sorted(menu.keys()):
 
             print(key + ":" + menu[key][0])
@@ -229,9 +238,8 @@ class GoPiggy(pigo.Pigo):
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
 
-        #ans = input("Your selection: ")
-        #option.get(ans, [None, error])[1]()
-
+###################################################
+############# Options for dataBase controller (Above)
     def rightTurn4(self):
         self.encR(4)
 
@@ -249,12 +257,12 @@ class GoPiggy(pigo.Pigo):
 
     def forward8(self):
         self.encF(8)
-        # TODO figure out what option is closest to the midpoint
+        ## TODO figure out what option is closest to the midpoint
 
 ########################################################
 ########### Color Key
     def colorCode(self):
-        print("\033[0;37;40m---------------- Key --------------------")
+        print("\033[0;37;40m---------------= Key =-------------------")
         print("\033[1;31;40mBright Red = Normal Menu")
         print("\033[1;32;40mBright Green = Selection Menu")
         print("\033[1;34;40mBright Blue = Execution Code")
@@ -265,6 +273,7 @@ class GoPiggy(pigo.Pigo):
         return self.speed
 
 ########################################################
+    ### Intervention between nav and encL/R
 ########## Consistent turns
 '''
     def turnR(self, x):
