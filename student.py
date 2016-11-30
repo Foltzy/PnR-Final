@@ -14,7 +14,6 @@ class GoPiggy(pigo.Pigo):
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
     STOP_DIST = 25
-    speed = 100
     TURNSPEED = 195
     ## Turn method variables
     turn_track = 0.0
@@ -23,6 +22,7 @@ class GoPiggy(pigo.Pigo):
 
     # CONSTRUCTOR
     def __init__(self):
+        ## Color codes added for understanding "\033[1;34;40m"
         print("\033[1;34;40mPiggy has be instantiated!")
         ## this method makes sure Piggy is looking forward
         ## self.calibrate()
@@ -57,7 +57,6 @@ class GoPiggy(pigo.Pigo):
 ############# A SIMPLE DANCE ALGORITHM
     def dance(self):
         print("Piggy dance")
-        ##### WRITE YOUR FIRST PROJECT HERE
         ##varibles for spin code/dance code
         x = 100
         a = 0
@@ -107,7 +106,7 @@ class GoPiggy(pigo.Pigo):
 
 #################################################
 ######## TODO List
-    #TODO - Test coding and make bug fixes
+    #TODO - Test turn track and log all turns
 
 #################################################
 ############ TEST DRIVE Method
@@ -122,9 +121,8 @@ class GoPiggy(pigo.Pigo):
                 print("STOP!")
                 break
             time.sleep(.05)
-            print("\033[1;34;40m------------------")
+            print("\033[1;34;40m")
             print("Seems alright...")
-            print("------------------")
         self.stop()
 
 ############################################################
@@ -266,11 +264,6 @@ class GoPiggy(pigo.Pigo):
         print("\033[1;31;40mBright Red = Normal Menu")
         print("\033[1;32;40mBright Green = Selection Menu")
         print("\033[1;34;40mBright Blue = Execution Code")
-
-##########################################################
-####### Calibration methods and turn speed help
-    def getSpeed(self):
-        return self.speed
 
 ########################################################
     ### Intervention between nav and encL/R
