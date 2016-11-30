@@ -182,9 +182,9 @@ class GoPiggy(pigo.Pigo):
             ## Turn right from a specific degree
             if answer == "left":
                 ##TODO: Replace "45" with a more accurate variable
-                self.turnL(45)
+                self.turnL(90)
             elif answer == "right":
-                self.turnR(45)
+                self.turnR(90)
 
 ##############################################
 ########### Choose path
