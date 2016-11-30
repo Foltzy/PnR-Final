@@ -183,9 +183,9 @@ class GoPiggy(pigo.Pigo):
             if answer == "left":
                 ##TODO: Replace "45" with a more accurate variable
                 ## 45 is good 90 turns too far
-                self.turnL(80)
+                self.turnL(70)
             elif answer == "right":
-                self.turnR(80)
+                self.turnR(70)
 
 ##############################################
 ########### Choose path
