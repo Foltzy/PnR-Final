@@ -42,7 +42,7 @@ class GoPiggy(pigo.Pigo):
                 "2": (" Rotate", self.rotate),
                 "3": (" Dance", self.dance),
                 "4": (" Calibrate", self.calibrate),
-                "5": (" Test Drive", self.testDrive),
+                "5": (" Test Drive", self.cruise),
                 "6": (" Test Scan", self.chooseBetter),
                 "c": (" Color Key", self.colorCode),
                 "s": (" Status", self.status),
