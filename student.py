@@ -110,6 +110,16 @@ class GoPiggy(pigo.Pigo):
 ######## TODO List
     #TODO - Test turn track and log all turns
 
+
+    ############################
+    ######## BACKUP
+    def backUp(self):
+        if us_dist(15) < 10:
+            print("Too close. Backing up for half a second")
+            bwd()
+            time.sleep(.5)
+            self.stop()
+
 #################################################
 ############ TEST DRIVE Method
     def cruise(self):
@@ -182,6 +192,7 @@ class GoPiggy(pigo.Pigo):
             while self.isClear():
                 ## move forward a fine amount while check loop
                 self.cruise()
+                self.backUp()
                 ## isClear MVP method
             turn_target = self.kenny()
             if turn_target > 0:
