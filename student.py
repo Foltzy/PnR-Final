@@ -17,6 +17,8 @@ class GoPiggy(pigo.Pigo):
     TURNSPEED = 195
     ## Turn method variables
     turn_track = 0.0
+    scan = [None] * 180
+    ## Turn method var.
     TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
 
@@ -110,19 +112,22 @@ class GoPiggy(pigo.Pigo):
 
 #################################################
 ############ TEST DRIVE Method
-    def testDrive(self):
-        print("\033[1;34;40m------------------")
-        print("Heading straight!")
-        print("------------------")
+    def cruise(self):
+        # Extra credit: Upgrade this so it looks around while driving
+        # Use the GoPiGo API's method to aim the sensor forward
+        servo(self.MIDPOINT)
+        #give the robot time to move
+        time.sleep(.05)
+        # start driving forward
         fwd()
+        # start an infinite loop
         while True:
+            # break the loop if the sensor reading is closer than our stop dist
             if us_dist(15) < self.STOP_DIST:
-                ##tell me when he wants to stop
-                print("STOP!")
                 break
+            #YOU DECIDE: How many seconds do you wait in between a check?
             time.sleep(.05)
-            print("\033[1;34;40m")
-            print("Seems alright...")
+        # stop if the sensor loop broke
         self.stop()
 
 ############################################################
@@ -172,18 +177,15 @@ class GoPiggy(pigo.Pigo):
         print("----------= NAVIGATING! =----------")
         ##### WRITE YOUR FINAL PROJECT HERE
         ## loop: check that it's clear
-        set_left_speed(100)
-        set_right_speed(115)
         ## Running app loop
         while True:
-            ##TODO: Replace choosePath with a method that's smarter
             while self.isClear():
                 ## move forward a fine amount while check loop
                 self.testDrive()
                 ## isClear MVP method
             turn_target = self.kenny()
-            if turn_target < 0:
-                self.turnR(abs(turn_target))
+            if turn_target > 0:
+                self.turnR(turn_target)
             else:
                 self.turnL(abs(turn_target))
 '''
@@ -199,8 +201,8 @@ class GoPiggy(pigo.Pigo):
                 ## self.turnR(turn_target)
 '''
 
-#########################################################
-########replacement turn method. Find the best method
+    #########################################################
+    ########replacement turn method. Find the best method
     def kenny(self):
         # Activate our scanner!
         self.wideScan()
@@ -261,7 +263,7 @@ class GoPiggy(pigo.Pigo):
             input("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
         return bestoption
 
-    ##############################################
+##############################################
 ############## WIDE SCAN
     def wideScan(self):
         # dump all values
