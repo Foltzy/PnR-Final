@@ -1,4 +1,16 @@
-# PnR-Final
-The final project for my Programming and Robotics class
+
+
+                                        VVVVVVV,           VVVVVVV,
+                                        VV   .VV           VV    VV
+                                        VVVVVVV'  VV.VVV.  VVVVVVV'
+                                        VV        VV   VV  VV  VV.
+                                        VV        VV   VV  VV   VV.
+
+
+
+
+
+README
+
 
 
