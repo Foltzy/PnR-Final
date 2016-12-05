@@ -181,28 +181,14 @@ class GoPiggy(pigo.Pigo):
         while True:
             while self.isClear():
                 ## move forward a fine amount while check loop
-                self.testDrive()
+                self.cruise()
                 ## isClear MVP method
             turn_target = self.kenny()
             if turn_target > 0:
                 self.turnR(turn_target)
             else:
                 self.turnL(abs(turn_target))
-'''
-            answer = self.choosePath()
-            ## turn_target = self.kenny()
-            ## Turn right from a specific degree
-            if answer == "left":
-                ## 70 degrees for a 90 degree turn
-                self.turnL(70)
-                ## self.turnL(turn_target)
-            elif answer == "right":
-                self.turnR(70)
-                ## self.turnR(turn_target)
-'''
 
-    #########################################################
-    ########replacement turn method. Find the best method
     def kenny(self):
         # Activate our scanner!
         self.wideScan()
