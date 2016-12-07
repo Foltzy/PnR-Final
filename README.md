@@ -5,11 +5,6 @@
                                         VVVVVVV'  VV.VVV.  VVVVVVV'
                                         VV        VV   VV  VV  VV.
                                         VV        VV   VV  VV   VV.
-
-
-
-
-
 README
 
 
