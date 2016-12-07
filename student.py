@@ -182,13 +182,14 @@ class GoPiggy(pigo.Pigo):
             if self.isClear():
                 ## move forward a fine amount while check loop
                 self.cruise()
+
             self.backUp()
             ## isClear MVP method
             turn_target = self.kenny()
-            if turn_target > 0:
-                self.turnR(turn_target)
+            if turn_target < 0:
+                self.turnR(abs(turn_target))
             else:
-                self.turnL(abs(turn_target))
+                self.turnL(turn_target)
 
     def kenny(self):
         # Activate our scanner!
