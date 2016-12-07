@@ -250,6 +250,15 @@ class GoPiggy(pigo.Pigo):
             input("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
         return bestoption
 
+    ############################
+    ######## BACKUP
+    def backUp(self):
+        if us_dist(15) < 10:
+            print("Too close. Backing up for half a second")
+            bwd()
+            time.sleep(.5)
+            self.stop()
+
 ##############################################
 ############## WIDE SCAN
     def wideScan(self):
