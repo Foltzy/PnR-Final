@@ -186,10 +186,10 @@ class GoPiggy(pigo.Pigo):
             self.backUp()
             ## isClear MVP method
             turn_target = self.kenny()
-            if turn_target < 0:
-                self.turnR(abs(turn_target))
+            if turn_target > 0:
+                self.turnR(turn_target)
             else:
-                self.turnL(turn_target)
+                self.turnL(abs(turn_target))
 
     def kenny(self):
         # Activate our scanner!
