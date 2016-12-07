@@ -179,11 +179,11 @@ class GoPiggy(pigo.Pigo):
         ## loop: check that it's clear
         ## Running app loop
         while True:
-            while self.isClear():
+            if self.isClear():
                 ## move forward a fine amount while check loop
                 self.cruise()
-                self.backUp()
-                ## isClear MVP method
+            self.backUp()
+            ## isClear MVP method
             turn_target = self.kenny()
             if turn_target > 0:
                 self.turnR(turn_target)
