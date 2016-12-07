@@ -253,7 +253,7 @@ class GoPiggy(pigo.Pigo):
     ############################
     ######## BACKUP
     def backUp(self):
-        if us_dist(30) < 10:
+        if us_dist(5) < 15:
             print("Too close. Backing up for half a second")
             bwd()
             time.sleep(.5)
