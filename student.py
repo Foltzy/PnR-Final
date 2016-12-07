@@ -20,7 +20,7 @@ class GoPiggy(pigo.Pigo):
     scan = [None] * 180
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
-    TURN_MODIFIER = .4
+    TURN_MODIFIER = .45
 
     # CONSTRUCTOR
     def __init__(self):
@@ -253,7 +253,7 @@ class GoPiggy(pigo.Pigo):
     ############################
     ######## BACKUP
     def backUp(self):
-        if us_dist(45) < 10:
+        if us_dist(30) < 10:
             print("Too close. Backing up for half a second")
             bwd()
             time.sleep(.5)
