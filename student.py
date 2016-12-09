@@ -21,7 +21,7 @@ class GoPiggy(pigo.Pigo):
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
-    RIGHT_SPEED = 185
+    RIGHT_SPEED = 180
     LEFT_SPEED = 165
 
     # CONSTRUCTOR
