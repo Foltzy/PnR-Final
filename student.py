@@ -21,8 +21,8 @@ class GoPiggy(pigo.Pigo):
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
-    RIGHT_SPEED = 190
-    LEFT_SPEED = 180
+    RIGHT_SPEED = 185
+    LEFT_SPEED = 170
 
     # CONSTRUCTOR
     def __init__(self):
@@ -285,14 +285,14 @@ class GoPiggy(pigo.Pigo):
         if reading < 15:
             print("Too close. Backing up for half a second")
             bwd()
-            time.sleep(.5)
+            time.sleep(.6)
             self.stop()
         # lazy double check approach
         else:
             if us_dist(15) < 15:
                 print("Too close. Backing up for half a second")
                 bwd()
-                time.sleep(.5)
+                time.sleep(.6)
                 self.stop()
 
 ##############################################
