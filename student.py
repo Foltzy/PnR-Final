@@ -275,7 +275,9 @@ class GoPiggy(pigo.Pigo):
     ############################
     ######## BACKUP
     def backUp(self):
-        if us_dist(15) < 15:
+        reading = us_dist(15)
+        input('I see a reading at: ' + str(reading))
+        if reading < 15:
             print("Too close. Backing up for half a second")
             bwd()
             time.sleep(.5)
