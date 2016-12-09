@@ -20,7 +20,7 @@ class GoPiggy(pigo.Pigo):
     scan = [None] * 180
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
-    TURN_MODIFIER = .45
+    TURN_MODIFIER = .5
 
     # CONSTRUCTOR
     def __init__(self):
