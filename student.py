@@ -21,6 +21,8 @@ class GoPiggy(pigo.Pigo):
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
     TURN_MODIFIER = .5
+    RIGHT_SPEED = 190
+    LEFT_SPEED = 180
 
     # CONSTRUCTOR
     def __init__(self):
@@ -28,6 +30,7 @@ class GoPiggy(pigo.Pigo):
         print("\033[1;34;40mPiggy has be instantiated!")
         ## this method makes sure Piggy is looking forward
         ## self.calibrate()
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
         ## let's use an event-driven model, make a handler of sorts to listen for "events"
         while True:
             self.stop()
@@ -161,7 +164,9 @@ class GoPiggy(pigo.Pigo):
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     def setSpeed(self, left, right):
+        print("LEFT SPEED: " + str(left) + " || RIGHT: " + str(right))
         set_left_speed(int(left))
+        time.sleep(.05)
         set_right_speed(int(right))
         time.sleep(.05)
 
