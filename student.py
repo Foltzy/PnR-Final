@@ -168,6 +168,7 @@ class GoPiggy(pigo.Pigo):
     def scanDrive(self):
         for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
             fwd()
+            time.sleep(.5)
             servo(x)
             time.sleep(.1)
             scan1 = us_dist(15)
@@ -202,7 +203,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.isClear():
                 ## move forward a fine amount while check loop
-                self.scanDrive()
+                self.cruise()
             self.backUp()
             ## isClear MVP method
             turn_target = self.kenny()
