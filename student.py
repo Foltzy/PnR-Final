@@ -268,7 +268,7 @@ class GoPiggy(pigo.Pigo):
                 # state our logic so debugging is easier
                 print("\nPATH @  " + str(x) + " degrees means a turn of " + str(turn))
                 # if this option is closer to our ideal than our current best option...
-                if abs(ideal - bestoption) > abs(ideal - turn):
+                if abs(ideal - bestoption) > abs(ideal - abs(turn)):
                     # store this turn as the best option
                     bestoption = turn
         if bestoption > 0:
