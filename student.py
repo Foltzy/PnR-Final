@@ -102,19 +102,19 @@ class GoPiggy(pigo.Pigo):
                     time.sleep(.1)
                     x += 25
 
-################################################
-###### Battery STATUS
+    ################################################
+    ###### Battery STATUS
     def status(self):
         print("\033[1;34;40m------------------------------")
         print("My power is at " + str(volt()) + " volts")
         print("------------------------------")
 
-#################################################
-######## TODO List
+    #################################################
+    ######## TODO List
     #TODO - Test turn track and log all turns
 
-#################################################
-############ TEST DRIVE Method
+    #################################################
+    ############ TEST DRIVE Method
     def cruise(self):
         # Extra credit: Upgrade this so it looks around while driving
         # Use the GoPiGo API's method to aim the sensor forward
@@ -133,8 +133,8 @@ class GoPiggy(pigo.Pigo):
         # stop if the sensor loop broke
         self.stop()
 
-############################################################
-################# TURN METHOD
+    ############################################################
+    ################# TURN METHOD
     ### encR and encL don't work - not efficient options
     def turnR(self, deg):
         ## Amount of turn
@@ -194,9 +194,9 @@ class GoPiggy(pigo.Pigo):
                 return False
         return True
 
-#######################################################
-### This runs the entire loop. This is the central logic loop.
-######################## NAV
+    #######################################################
+    ### This runs the entire loop. This is the central logic loop.
+    ######################## NAV
     def nav(self):
         print("\033[1;34;40m")
         print("----------= NAVIGATING! =----------")
@@ -255,27 +255,31 @@ class GoPiggy(pigo.Pigo):
         ############## PICK FROM THE OPTIONS - experimental
 
         # The biggest angle away from our midpoint we could possibly see is 90
-        bestoption = 90
+        bestoption = 2000
         # the turn it would take to get us aimed back toward the exit - experimental
-        ideal = -self.turn_track
-        print("\nTHINKING. Ideal turn: " + str(ideal) + " degrees\n")
+        ideal_angle = self.MIDPOINT + self.turn_track
+        print("\nTHINKING. Ideal turn: " + str(ideal_angle) + " degrees\n")
         # x will iterate through all the angles of our path options
         for x in option:
             # skip our filler option
             if x != 0:
                 # the change to the midpoint needed to aim at this path
-                turn = self.MIDPOINT - x
+
                 # state our logic so debugging is easier
-                print("\nPATH @  " + str(x) + " degrees means a turn of " + str(turn))
+                print("\nPATH @  " + str(x) + " degrees means a turn of " + str(self.MIDPOINT - x))
                 # if this option is closer to our ideal than our current best option...
-                if abs(ideal - bestoption) > abs(ideal - abs(turn)):
+                if abs(ideal_angle - bestoption) > abs(ideal_angle - x):
                     # store this turn as the best option
-                    bestoption = turn
+                    bestoption = x
+        bestoption = self.MIDPOINT - bestoption
         if bestoption > 0:
-            print("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
+            input("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
         else:
-            print("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
-        return bestoption
+            input("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
+        if bestoption != 2000 and abs(bestoption) > 5:
+            return bestoption
+        else:
+            return -self.turn_track
 
     ############################
     ######## BACKUP
