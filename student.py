@@ -243,13 +243,13 @@ class GoPiggy(pigo.Pigo):
                     # aww nuts, I have to reset the count, this path won't work
                     count = 0
                 # YOU DECIDE: Is 16 degrees the right size to consider as a safe window?
-                if count > (14 / INC) - 1:
+                if count > (12 / INC) - 1:
                     # SUCCESS! I've found enough positive readings in a row
-                    print("---FOUND OPTION: from " + str(x - 14) + " to " + str(x))
+                    print("---FOUND OPTION: from " + str(x - 12) + " to " + str(x))
                     # set the counter up again for next time
                     count = 0
                     # add this option to the list
-                    option.append(x - 7)
+                    option.append(x - 6)
 
         ####################################
         ############## PICK FROM THE OPTIONS - experimental
