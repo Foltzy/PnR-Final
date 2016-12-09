@@ -165,7 +165,28 @@ class GoPiggy(pigo.Pigo):
         set_right_speed(int(right))
         time.sleep(.05)
 
-
+    def scanDrive(self):
+        for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
+            fwd()
+            servo(x)
+            time.sleep(.1)
+            scan1 = us_dist(15)
+            time.sleep(.1)
+            # double check the distance
+            scan2 = us_dist(15)
+            time.sleep(.1)
+            # if I found a different distance the second time....
+            if abs(scan1 - scan2) > 2:
+                scan3 = us_dist(15)
+                time.sleep(.1)
+                # take another scan and average the three together
+                scan1 = (scan1 + scan2 + scan3) / 3
+            self.scan[x] = scan1
+            print("Degree: " + str(x) + ", distance: " + str(scan1))
+            if scan1 < self.STOP_DIST:
+                print("Doesn't look clear to me")
+                return False
+        return True
 
 #######################################################
 ### This runs the entire loop. This is the central logic loop.
@@ -181,8 +202,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.isClear():
                 ## move forward a fine amount while check loop
-                self.cruise()
-
+                self.scanDrive()
             self.backUp()
             ## isClear MVP method
             turn_target = self.kenny()
