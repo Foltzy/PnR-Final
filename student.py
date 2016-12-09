@@ -20,7 +20,7 @@ class GoPiggy(pigo.Pigo):
     scan = [None] * 180
     ## Turn method var.
     TIME_PER_DEGREE = 0.011
-    TURN_MODIFIER = .8
+    TURN_MODIFIER = .9
     RIGHT_SPEED = 120
     LEFT_SPEED = 100
 
