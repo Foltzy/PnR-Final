@@ -276,7 +276,7 @@ class GoPiggy(pigo.Pigo):
             print("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
         else:
             print("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
-        if bestoption != 2000 and abs(bestoption) > 5:
+        if bestoption != 2000 and abs(bestoption) > 5 and abs(bestoption) < 180:
             return bestoption
         else:
             return -self.turn_track
