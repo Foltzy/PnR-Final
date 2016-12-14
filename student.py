@@ -273,9 +273,9 @@ class GoPiggy(pigo.Pigo):
                     bestoption = x
         bestoption = self.MIDPOINT - bestoption
         if bestoption > 0:
-            input("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
+            print("\nABOUT TO TURN RIGHT BY: " + str(bestoption) + " degrees")
         else:
-            input("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
+            print("\nABOUT TO TURN LEFT BY: " + str(abs(bestoption)) + " degrees")
         if bestoption != 2000 and abs(bestoption) > 5:
             return bestoption
         else:
