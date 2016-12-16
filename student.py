@@ -299,7 +299,7 @@ class GoPiggy(pigo.Pigo):
                 time.sleep(.6)
                 self.stop()
 
-##############################################
+###############################################
 ############## WIDE SCAN
     def wideScan(self):
         # dump all values
